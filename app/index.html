@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="AppController as ctrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="./static/styles/main.css">
+</head>
+<body>
+
+    <a ui-sref="calendar">Calendar</a>
+    <a ui-sref="task-list">Task List</a>
+
+    <div ui-view></div>
+    <script src="./static/scripts/main.js"></script>
+</body>
+</html>
