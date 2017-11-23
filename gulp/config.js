@@ -1,4 +1,12 @@
 var config = {
+    sass: {
+        src: [
+            './node_modules/bootstrap/dist/css/bootstrap.css',
+            './app/static/styles/main.scss'
+        ],
+        dest: './app/static/styles/',
+        watch: './app/static/styles/**/*.scss'
+    },
     js: {
         src: [
             './node_modules/angular/angular.min.js',
