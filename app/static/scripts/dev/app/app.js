@@ -32,4 +32,5 @@ app.controller('TasksController', TasksController)
 app.factory('tasksFactory', tasksFactory);
 
 app.directive('taskList', taskListDirective);
+app.directive('taskCreate', taskCreateDirective);
 

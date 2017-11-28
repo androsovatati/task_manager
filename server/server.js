@@ -10,6 +10,7 @@ var jsonParser = bodyParser.json();
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
     next();
 });
 
@@ -52,21 +53,26 @@ app.post("/api/tasks", jsonParser, function (req, res) {
     var taskTitle = req.body.title,
         taskDescription = req.body.description,
         taskDate = req.body.date,
-        taskContacts = req.body.contacts,
-        task = {
-            title: taskTitle, 
-            description: taskDescription,
-            date: taskDate,
-            contacts: taskContacts
-        };
+        taskContacts = req.body.contacts;
      
     var data = fs.readFileSync("tasks.json", "utf8"),
         tasks = JSON.parse(data);
-     
-    // находим максимальный id
-    var id = Math.max.apply(Math,tasks.map(function(o){return o.id;}))
-    // увеличиваем его на единицу
-    task.id = id+1;
+    
+    if (tasks.length > 0) {
+        // находим максимальный id
+        var id = Math.max.apply(Math,tasks.map(function(o){return o.id;}))
+    } else {
+        id = 0;
+    }
+    taskId = id + 1;
+    var task = {
+        id: taskId,
+        title: taskTitle, 
+        description: taskDescription,
+        date: taskDate,
+        contacts: taskContacts
+    };
+    
     // добавляем пользователя в массив
     tasks.push(task);
     var data = JSON.stringify(tasks);
@@ -102,7 +108,7 @@ app.delete("/api/tasks/:id", function(req, res){
     }
 });
 
-// изменение пользователя
+// изменение задачи
 app.put("/api/tasks", jsonParser, function(req, res){
       
     if(!req.body) return res.sendStatus(400);
@@ -122,7 +128,7 @@ app.put("/api/tasks", jsonParser, function(req, res){
             break;
         }
     }
-    // изменяем данные у пользователя
+    // изменяем данные у задачи
     if(task){
         task.title = taskTitle; 
         task.description = taskDescription;
@@ -138,6 +144,6 @@ app.put("/api/tasks", jsonParser, function(req, res){
     }
 });
   
-app.listen(3000, function(){
+app.listen(4000, function(){
     console.log("Сервер ожидает подключения...");
 });

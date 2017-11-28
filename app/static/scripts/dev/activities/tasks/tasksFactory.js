@@ -1,6 +1,6 @@
 function tasksFactory($http, $q) {
     var factory = {};
-    var url = 'http://localhost:3000/api/tasks';
+    var url = 'http://localhost:4000/api/tasks';
 
     // получение списка задач
     factory.getTasks = function() {
@@ -15,6 +15,31 @@ function tasksFactory($http, $q) {
         
         $http.get(url + '/' + id).then(function(resp) {
             deferred.resolve(resp.data);
+            factory.getTasks();
+        });
+
+        return deferred.promise;
+    }
+
+    // редактирование задачи
+    factory.updateTask = function(data) {
+        var deferred = $q.defer();
+
+        $http.put(url, data).then(function(resp) {
+            deferred.resolve(resp.data);
+            factory.getTasks();
+        });
+
+        return deferred.promise;
+    }
+
+    // удаление задачи
+    factory.deleteTask = function(id) {
+        var deferred = $q.defer();
+
+        $http.delete(url + '/' + id).then(function(resp) {
+            deferred.resolve(resp.data);
+            factory.getTasks();
         });
 
         return deferred.promise;
@@ -24,8 +49,9 @@ function tasksFactory($http, $q) {
     factory.createTask = function(data) {
         var deferred = $q.defer();
 
-        $http.put(url, data).then(function(resp) {
+        $http.post(url, data).then(function(resp) {
             deferred.resolve(resp.data);
+            factory.getTasks();
         });
 
         return deferred.promise;

@@ -9,6 +9,6 @@ function TaskController(tasksFactory, $stateParams) {
     });
 
     self.saveChanges = function() {
-        console.log(self.task);
+        self.storage.updateTask(self.task);
     }
 }
