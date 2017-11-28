@@ -6392,3 +6392,5 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.main-view {
+  padding: 30px 0; }

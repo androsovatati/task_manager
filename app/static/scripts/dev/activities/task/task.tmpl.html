@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form role="form">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" ng-model="ctrl.task.title">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" ng-model="ctrl.task.description"></textarea>
+            </div>
+            <button class="btn btn-success" ng-click="ctrl.saveChanges()">Сохранить</button>
+        </form>
+    </div>
+</div>

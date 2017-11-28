@@ -1,11 +1,5 @@
 var app = angular.module('app', ['ui.router']);
 
-app.controller('AppController', function($scope) {
-    var self = this;
-
-    self.name = 'Tanya';
-});
-
 app.config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise("/");
@@ -13,16 +7,29 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('calendar', {
             url: "/calendar",
-            templateUrl: "static/scripts/dev/components/calendar/calendar.tmpl.html"
+            templateUrl: "static/scripts/dev/activities/calendar/calendar.tmpl.html",
+            controller: "CalendarController",
+            controllerAs: "ctrl"
         })
-        .state('task-list', {
-            url: "/task-list",
-            templateUrl: "static/scripts/dev/components/task-list/task-list.tmpl.html"
+        .state('tasks', {
+            url: "/tasks",
+            templateUrl: "static/scripts/dev/activities/tasks/tasks.tmpl.html",
+            controller: "TasksController",
+            controllerAs: "ctrl"
         })
         .state('task', {
-            url: "/task",
-            templateUrl: "static/scripts/dev/components/task/task.tmpl.html"
+            url: "/tasks/:taskId",
+            templateUrl: "static/scripts/dev/activities/task/task.tmpl.html",
+            controller: "TaskController",
+            controllerAs: "ctrl"
         })
 });
 
-app.directive('task', taskDirective);
+app.controller('TasksController', TasksController)
+    .controller('TaskController', TaskController)
+    .controller('CalendarController', CalendarController);
+
+app.factory('tasksFactory', tasksFactory);
+
+app.directive('taskList', taskListDirective);
+

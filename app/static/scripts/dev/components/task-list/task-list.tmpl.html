@@ -1,3 +1,10 @@
-<div>
-    <h1>Task List</h1>
+<div class="panel panel-success" ng-repeat="task in ctrl.tasks" ui-sref="task({taskId: task.id})">
+    <div class="panel-heading">
+        <div class="panel-title">
+            {{task.id}} - {{task.title}}
+        </div>
+    </div>
+    <div class="panel-body">
+        {{task.description}}
+    </div>
 </div>

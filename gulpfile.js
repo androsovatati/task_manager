@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     notify = require('gulp-notify'),
     prefix = require('gulp-autoprefixer'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('browser-sync', function() {
     bs.init({
@@ -31,13 +32,16 @@ gulp.task('sass', function () {
 
 gulp.task('js', function() {
     gulp.src(config.js.src)
+        .pipe(sourcemaps.init())
         .pipe(concat('main.js'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.js.dest));
 });
 
 gulp.task('watch', function() {
     gulp.watch(config.sass.watch, ['sass']);
     gulp.watch(config.js.watch, ['js']);
+    gulp.watch(config.html.watch, ['js']);
 });
 
 gulp.task('default', ['sass', 'js', 'watch', 'browser-sync']);

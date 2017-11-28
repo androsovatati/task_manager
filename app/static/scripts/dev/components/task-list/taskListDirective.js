@@ -1,13 +1,13 @@
-function taskDirective() {
+function taskListDirective() {
     return {
         scope: {},
         bindToController: {
-            name: "=",
-            description: "="
+            tasks: '='
         },
         templateUrl: "./static/scripts/dev/components/task-list/task-list.tmpl.html",
         controller: function() {
-            
+            var self = this;
+
         },
         controllerAs: "ctrl"
     }
