@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="./static/styles/main.css">
 </head>
 <body>
-
-    <div class="nav-panel">
-        <ul class="nav nav-tabs nav-justified">
-            <li><a ui-sref="calendar">Calendar</a></li>
-            <li><a ui-sref="tasks">Tasks</a></li>
-        </ul>
-    </div>
-    
-    <div class="container">
-        <div ui-view class="main-view"></div>
+        
+    <div class="wrapper">
+        <sidebar class="" 
+                ng-class="navbarIsOpen ? '' : 'very thin'"
+                toggle="navbarIsOpen">        
+        </sidebar>
+        <div class="main-content">
+            <navpanel toggle="navbarIsOpen"></navpanel>
+            <div ui-view class="ui basic segment main-view"></div>
+        </div>
     </div>
 
     <script src="./static/scripts/main.js"></script>

@@ -3,6 +3,8 @@ var config = {
         src: [
             './node_modules/bootstrap/dist/css/bootstrap.css',
             './node_modules/fullcalendar/dist/fullcalendar.css',
+            './node_modules/font-awesome/scss/font-awesome.scss',
+            './node_modules/semantic-ui/dist/semantic.min.css',
             './app/static/styles/main.scss'
         ],
         dest: './app/static/styles/',
@@ -20,6 +22,7 @@ var config = {
             './node_modules/angular-ui-calendar/src/calendar.js',
             './node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
             './node_modules/angular-ui-router/release/angular-ui-router.min.js',
+            './node_modules/semantic-ui/dist/semantic.min.js',
             './app/static/scripts/dev/**/*.js'
         ],
         dest: './app/static/scripts/',

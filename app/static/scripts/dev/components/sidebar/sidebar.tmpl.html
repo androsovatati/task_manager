@@ -1,0 +1,13 @@
+<div class="sidebar__wrapper"
+     ng-class="ctrl.toggle ? 'wide' : 'thin'">
+    <div class="sidebar__name">
+        <h2>
+            <span class="sidebar__name_short">T</span><span class="sidebar__name_full">ask</span>
+            <span class="sidebar__name_short">M</span><span class="sidebar__name_full">anager</span>
+        </h2>
+    </div>
+    <a class="sidebar__item" ui-sref="{{item.link}}" ui-sref-active="_active" ng-repeat="item in ctrl.items">
+        <i class="fa" ng-class="item.icon"></i>
+        <span ng-if="ctrl.toggle">{{item.name}}</span>
+    </a>
+</div>

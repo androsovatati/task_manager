@@ -31,6 +31,8 @@ app.controller('TasksController', TasksController)
 
 app.factory('tasksFactory', tasksFactory);
 
+app.directive('sidebar', sidebarDirective);
+app.directive('navpanel', navpanelDirective);
 app.directive('taskList', taskListDirective);
 app.directive('taskCreate', taskCreateDirective);
 

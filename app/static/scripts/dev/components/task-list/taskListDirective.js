@@ -4,7 +4,7 @@ function taskListDirective(tasksFactory) {
         bindToController: {
             tasks: '='
         },
-        templateUrl: "./static/scripts/dev/components/task-list/task-list.tmpl.html",
+        templateUrl: './static/scripts/dev/components/task-list/task-list.tmpl.html',
         controller: function() {
             var self = this;
             self.storage = tasksFactory;
@@ -15,6 +15,6 @@ function taskListDirective(tasksFactory) {
             }
 
         },
-        controllerAs: "ctrl"
+        controllerAs: 'ctrl'
     }
 }
