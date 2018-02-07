@@ -1,4 +1,4 @@
-function TaskController(tasksFactory, $stateParams) {
+function TaskController(tasksFactory, $stateParams, $state) {
     var self = this;
 
     self.storage = tasksFactory;
@@ -10,5 +10,6 @@ function TaskController(tasksFactory, $stateParams) {
 
     self.saveChanges = function() {
         self.storage.updateTask(self.task);
+        $state.go('tasks');
     }
 }

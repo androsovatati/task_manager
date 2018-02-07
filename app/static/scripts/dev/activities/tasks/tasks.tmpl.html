@@ -1,8 +1,7 @@
-<button type="button" class="btn btn-success" ng-click="ctrl.createTask = !ctrl.createTask">
+<button type="button" class="ui button" ng-click="ctrl.createTask = !ctrl.createTask">
     <span class="glyphicon glyphicon-plus"></span>
     Create new task
 </button>
-<button class="ui inverted red button">Красный</button>
 <task-create ng-if="ctrl.createTask"></task-create>
 <hr>
 <task-list tasks="ctrl.storage.tasks"></task-list>

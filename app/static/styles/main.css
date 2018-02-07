@@ -33245,10 +33245,32 @@ body.pushable > .pusher {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
+.main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  background: #676767;
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.3); }
+
 .main-content {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1; }
+
+.main-view {
+  overflow: auto; }
+
+.navbar-btn {
+  background: none;
+  outline: none;
+  border: none;
+  margin-left: 8px;
+  color: white; }
 
 .sidebar__wrapper {
   height: 100%;
@@ -33320,3 +33342,7 @@ body.pushable > .pusher {
       bottom: 0;
       width: 3px;
       background: #009DFF; }
+
+.create-task__container {
+  margin-top: 20px !important;
+  margin-bottom: 10px; }

@@ -1,14 +1,22 @@
-<div class="panel panel-success" ng-repeat="task in ctrl.tasks">
-    <div class="panel-heading">
-        {{task.id}} - {{task.title}}
-    </div>
-    <div class="panel-body">
-        Description: {{task.description}} </br>
-        Date: {{task.date}} </br>
-        Contacts: {{task.contacts}} </br>
-    </div>
-    <div class="panel-footer">
-        <button class="btn btn-danger" ng-click="ctrl.removeTask(task.id)">Удалить</button>
-        <button class="btn btn-success" ui-sref="task({taskId: task.id})">Изменить</button>
+<div class="ui cards">
+    <div class="card" ng-repeat="task in ctrl.tasks">
+      <div class="content">
+        <div class="header">
+            {{task.id}} - {{task.title}}
+        </div>
+        <div class="meta">
+            Date: {{task.date}} </br>
+            Contacts: {{task.contacts}}
+        </div>
+        <div class="description">
+            Description: {{task.description}}
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="ui two buttons">
+          <div class="ui basic green button" ui-sref="task({taskId: task.id})">Update</div>
+          <div class="ui basic red button" ng-click="ctrl.removeTask(task.id)">Delete</div>
+        </div>
+      </div>
     </div>
 </div>

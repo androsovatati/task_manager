@@ -15,7 +15,12 @@
                 toggle="navbarIsOpen">        
         </sidebar>
         <div class="main-content">
-            <navpanel toggle="navbarIsOpen"></navpanel>
+            <header class="main-header">
+                <!-- <navpanel toggle="navbarIsOpen"></navpanel> -->
+                <button class="navbar-btn" ng-click="navbarIsOpen=!navbarIsOpen">
+                    <i class="fa fa-2x fa-bars"></i>
+                </button>
+            </header>
             <div ui-view class="ui basic segment main-view"></div>
         </div>
     </div>
